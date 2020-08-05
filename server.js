@@ -8,7 +8,11 @@ server.use(express.json());
 
 server.get("/api/users", (req, res) => {
   const allUsers = db.getUsers();
+  if (allUsers) {
   res.json(allUsers);
+} else {
+    res.status(500).json({errorMesage: "The users information could not be retrieved."})
+}
 });
 
 server.get("/api/users/:id", (req, res) => {
@@ -18,7 +22,7 @@ server.get("/api/users/:id", (req, res) => {
 
     if (user) {
         res.status(200).json(user)
-    } else {
+    } else  {
         res.status(404).json({errorMessage:"The user with the specified ID does not exist."})
     }
 })
@@ -67,5 +71,5 @@ server.put("/api/users/:id", (req,res) => {
 })
 
 server.listen(8080, () => {
-  console.log("Server started on port 8080");
+  console.log("The server has started on port 8080, have fun!");
 });

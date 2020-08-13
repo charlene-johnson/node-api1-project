@@ -1,10 +1,11 @@
 const express = require("express");
-
+const welcome = require("./welcome")
 const db = require("./database");
 
 const server = express();
 
 server.use(express.json());
+server.use("/", welcome)
 
 server.get("/api/users/:id", (req, res) => {
   try {

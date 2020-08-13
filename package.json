@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "watch": "nodemon --require dotenv/config server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "shortid": "^2.2.15"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   }
 }

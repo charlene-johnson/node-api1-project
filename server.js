@@ -3,6 +3,7 @@ const welcome = require("./welcome")
 const db = require("./database");
 
 const server = express();
+const port = process.env.PORT || 8080
 
 server.use(express.json());
 server.use("/", welcome)
@@ -101,6 +102,6 @@ server.put("/api/users/:id", (req, res) => {
   }
 });
 
-server.listen(8080, () => {
-  console.log("The server has started on port 8080, have fun!");
+server.listen(port, () => {
+  console.log(`The server has started on port ${port}, have fun!`);
 });
